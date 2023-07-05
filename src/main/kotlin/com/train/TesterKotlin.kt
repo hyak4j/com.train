@@ -18,6 +18,10 @@ private fun userInput() {
 }
 
 class TicketMachineKotlin(var ticket_number :Int, var round_trip_ticket_number :Int){
+    val oneWayTicketPrice = 1000  //單程票定價
+    val roundTripDiscount = 0.9   //來回票折扣
+    val roundTripTicketPrice = (2000 * roundTripDiscount).toInt()  //來回票定價
+
     // 輸出結果
     fun print(){
         println("Total tickets: " + ticket_number + " Round-trip: " + round_trip_ticket_number + " Total: " + caculation())
@@ -30,7 +34,7 @@ class TicketMachineKotlin(var ticket_number :Int, var round_trip_ticket_number :
 
     // 計算付費金額
     private fun caculation() :Int{
-        return ((oneWayTicketNumber() * 1000) + (round_trip_ticket_number * 2000 * 0.9f).toInt())
+        return ((oneWayTicketNumber() * oneWayTicketPrice) + (round_trip_ticket_number * roundTripTicketPrice))
     }
 }
 
